@@ -21,6 +21,7 @@ class RandomChar extends Component {
         this.setState({ char })
     }
 
+
     // marvelService.getAllCharacters().then(res => res.data.results.forEach(item => console.log(item.name)));
     updateChar = () => {
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000)
@@ -32,6 +33,7 @@ class RandomChar extends Component {
     render() {
         const { char: { name, description, thumbnail, homepage, wiki } } = this.state;
 
+        
         return (
             <div className="randomchar">
                 <div className="randomchar__block">

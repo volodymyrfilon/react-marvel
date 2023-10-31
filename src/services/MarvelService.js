@@ -22,10 +22,20 @@ class MarvelService {
         return this._transformCharacter(res.data.results[0]);
     }
 
+    handleCharDescription = (description) => {       
+        if (description.length === 0) {
+            return 'There is no description of this character.';
+        } else if (description.length >= 228) {
+            return `${description.slice(0, 228)}...`;
+        } else {
+            return description;
+        }
+    }
+
     _transformCharacter = (char) => {
         return {
             name: char.name,
-            description: char.description,
+            description: this.handleCharDescription(char.description),
             thumbnail: `${char.thumbnail.path}.${char.thumbnail.extension}`,
             homepage: char.urls[0].url,
             wiki: char.urls[1].url,
