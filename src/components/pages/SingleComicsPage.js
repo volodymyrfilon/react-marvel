@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import useMarvelService from '../../services/MarvelService'
+import AppBanner from '../appBanner/AppBanner'
 import ErrorMessage from '../errorMessage/ErrorMessage'
 import Spinner from '../spinner/Spinner'
 import './singleComics.scss'
@@ -32,6 +33,7 @@ const SingleComicsPage = () => {
 
 	return (
 		<>
+			<AppBanner />
 			{errorMessage}
 			{spinner}
 			{content}
@@ -40,7 +42,7 @@ const SingleComicsPage = () => {
 }
 
 const View = ({ comics }) => {
-	const { title, description, pageCount, thumbnail, Language, price } = comics
+	const { title, description, pageCount, thumbnail, language, price } = comics
 
 	return (
 		<div className='single-comic'>
@@ -49,10 +51,10 @@ const View = ({ comics }) => {
 				<h2 className='single-comic__name'>{title}</h2>
 				<p className='single-comic__descr'>{description}</p>
 				<p className='single-comic__descr'>{pageCount}</p>
-				<p className='single-comic__descr'>Language: {Language}</p>
+				<p className='single-comic__descr'>Language: {language}</p>
 				<div className='single-comic__price'>{price}</div>
 			</div>
-			<Link to={'/comics'} className='single-comic__back'>
+			<Link to='/react-marvel/comics' className='single-comic__back'>
 				Back to all
 			</Link>
 		</div>

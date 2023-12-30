@@ -17,7 +17,7 @@ const Page404 = () => {
 					marginTop: '30px',
 					color: '#9f0013',
 				}}
-				to='/'
+				to='/react-marvel'
 			>
 				Back to main page
 			</Link>
